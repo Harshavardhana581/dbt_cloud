@@ -1,0 +1,18 @@
+version: 2
+
+models:
+    - name: bronze_appointments
+      config: 
+        materialized: table
+        schema: bronze
+    
+    - name: bronze_doctors
+      config: 
+        materialized: table
+        schema: bronze
+    
+    - name: bronze_patients
+      config: 
+        materialized: table
+        schema: bronze
+    
