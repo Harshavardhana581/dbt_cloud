@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: healthcare_dashboard
+    description: "Final table for BI"
+    columns:
+      - name: patient_name
+        tests:
+          - not_null

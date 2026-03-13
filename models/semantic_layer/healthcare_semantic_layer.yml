@@ -1,0 +1,22 @@
+semantic_models:
+  - name: healthcare_results
+    model: ref('healthcare_dashboard')
+    entities:
+      - name: appt_id
+        type: primary
+    dimensions:
+      - name: appt_date
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: total_revenue
+        agg: sum
+        expr: fee
+
+metrics:
+  - name: total_revenue_metric
+    label: "Total Revenue"
+    type: simple
+    type_params:
+      measure: total_revenue
