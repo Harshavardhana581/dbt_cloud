@@ -1,0 +1,9 @@
+snapshots:
+  - name: snapshot_doctors
+    relation: source('staging', 'doctors')
+    config:
+      schema: SNAPSHOTS
+      database: HEALTHCARE_DB
+      unique_key: doctor_id
+      strategy: check
+      check_cols: ['specialty', 'doctor_name']

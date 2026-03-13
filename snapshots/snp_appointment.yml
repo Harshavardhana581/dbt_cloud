@@ -1,0 +1,12 @@
+snapshots:
+  - name: snp_appointments
+    relation: source('staging', 'appointments')
+    config:
+      target_database: HEALTHCARE_DB
+      target_schema: SNAPSHOTS
+      unique_key: appt_id
+      strategy: timestamp
+      updated_at: APPT_DATE
+      # We watch the date and fee. If an appointment is rescheduled 
+      # or the price changes, it creates a new historical record.
+      check_cols: ['appt_date', 'fee']

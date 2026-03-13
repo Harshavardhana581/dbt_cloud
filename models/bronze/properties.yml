@@ -5,7 +5,19 @@ models:
       config: 
         materialized: table
         schema: bronze
-    
+      columns:
+        - name: appt_id
+          tests:
+            - unique
+            - not_null
+        - name: fee
+          tests:
+            - accepted_values:
+                arguments:
+                  values: [0-5000]
+                config:
+                  severity: warn
+
     - name: bronze_doctors
       config: 
         materialized: table
@@ -15,4 +27,3 @@ models:
       config: 
         materialized: table
         schema: bronze
-    
